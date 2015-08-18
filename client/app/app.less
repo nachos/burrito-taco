@@ -1,0 +1,34 @@
+html, body{
+  background-color: transparent;
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+iframe {
+  border: none
+}
+
+.main-wrapper{
+  height: 100vh;
+  width: 100vw;
+}
+
+@increment: 64px;
+
+
+// Overrides
+.md-subheader, md-content{
+  margin-right: 0;
+  background-color: transparent!important;
+}
+
+.md-button {
+  margin: 0!important;;
+  min-width: 0!important;;
+}
+
+// injector
+@import 'shell/shell.less';
+// endinjector
