@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('nachosBurritoTaco')
-  .controller('ShellController', function ($scope, burrito, materialColor) {
+  .controller('ShellController', function ($scope, $timeout, burrito, materialColor) {
     var remote = require('remote');
     var window = remote.getCurrentWindow();
 
@@ -11,18 +11,19 @@ angular.module('nachosBurritoTaco')
       window.close();
     };
 
-    $scope.toggleFullscreen = function (){
-      if(!$scope.isFullScreen){
+    $scope.toggleFullscreen = function () {
+      if (!$scope.isFullScreen) {
         window.maximize();
       }
-      else{
+      else {
         window.unmaximize();
       }
+
       $scope.isFullScreen = !$scope.isFullScreen;
     };
 
-    $scope.hide = function (){
-      window.minimize()
+    $scope.hide = function () {
+      window.minimize();
     };
 
     burrito.get()
@@ -31,6 +32,8 @@ angular.module('nachosBurritoTaco')
       });
 
     materialColor.get(700, function (color) {
-      $scope.bg = color;
+      $timeout(function () {
+        $scope.bg = color;
+      });
     });
   });

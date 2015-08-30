@@ -11,7 +11,7 @@ angular.module('nachosBurritoTaco')
 
     burrito.get()
       .then(function (item) {
-        if(!!item.config.burrito && item.config.burrito.theme) {
+        if (!!item.config.burrito && item.config.burrito.theme) {
           materialColor.set(item.config.burrito.theme);
         }
 
@@ -22,6 +22,9 @@ angular.module('nachosBurritoTaco')
             },
             process: {
               argv: argv
+            },
+            changeColor: function (color) {
+              return materialColor.set(color);
             }
           };
 
@@ -29,5 +32,5 @@ angular.module('nachosBurritoTaco')
 
           $scope.item = item;
         });
-      })
+      });
   });
